@@ -11,16 +11,16 @@
 
   <!-- Button -->
   <Style TargetType="Button" x:Key="ModernButton">
-    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="Background" Value="#3C3C43"/>
     <Setter Property="Foreground" Value="#FFFFFF"/>
     <Setter Property="FontWeight" Value="SemiBold"/>
-    <Setter Property="Padding" Value="8,0"/>
+    <Setter Property="Padding" Value="8,4"/>
     <Setter Property="Cursor" Value="Hand"/>
     <Setter Property="BorderThickness" Value="0"/>
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="Button">
-          <Border x:Name="border" Background="{TemplateBinding Background}" CornerRadius="4">
+          <Border x:Name="border" Background="{TemplateBinding Background}" CornerRadius="4" Padding="{TemplateBinding Padding}">
             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
           </Border>
         </ControlTemplate>
@@ -29,7 +29,7 @@
     <Setter Property="SnapsToDevicePixels" Value="True"/>
     <Style.Triggers>
       <Trigger Property="IsMouseOver" Value="True">
-        <Setter Property="Background" Value="#3C3C43"/>
+        <Setter Property="Background" Value="#C3C3C3"/>
       </Trigger>
       <Trigger Property="IsPressed" Value="True">
         <Setter Property="Background" Value="#0078D7"/>
@@ -37,21 +37,31 @@
     </Style.Triggers>
   </Style>
 
-  <!-- 타이틀바 버튼용 스타일 (ModernButton 상속) -->
+  <!-- TitleBar Button Style (ModernButton inherit) -->
   <Style TargetType="Button" x:Key="TitleButton" BasedOn="{StaticResource ModernButton}">
+    <Setter Property="Background" Value="Transparent"/>
     <Setter Property="Width" Value="40"/>
     <Setter Property="Height" Value="32"/>
     <Setter Property="FontSize" Value="16"/>
     <Setter Property="FontWeight" Value="Normal"/>
     <Setter Property="Padding" Value="0"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="Button">
+          <Border x:Name="border" Background="{TemplateBinding Background}" CornerRadius="4" Padding="{TemplateBinding Padding}">
+            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+          </Border>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
   </Style>
 
-  <!-- 닫기 버튼 (TitleButton 상속, 각진 모서리, hover/pressed 시 빨간색) -->
+  <!-- Close Button Style (TitleButton inherit, sharp corners, hover/pressed red) -->
   <Style TargetType="Button" x:Key="CloseButton" BasedOn="{StaticResource TitleButton}">
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="Button">
-          <Border x:Name="border" Background="{TemplateBinding Background}" CornerRadius="0">
+          <Border x:Name="border" Background="{TemplateBinding Background}" CornerRadius="0" Padding="{TemplateBinding Padding}">
             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
           </Border>
         </ControlTemplate>
@@ -83,5 +93,104 @@
     <Setter Property="Background" Value="{StaticResource TitleBarBackgroundBrush}"/>
     <Setter Property="Height" Value="32"/>
     <Setter Property="VerticalAlignment" Value="Top"/>
+  </Style>
+
+  <!-- ListBox style -->
+  <Style TargetType="ListBox" x:Key="ModernListBox">
+    <Setter Property="Background" Value="#23272E"/>
+    <Setter Property="Foreground" Value="#FFFFFF"/>
+    <Setter Property="BorderThickness" Value="0"/>
+    <Setter Property="Padding" Value="8"/>
+    <Setter Property="Margin" Value="0,0,0,0"/>
+    <Setter Property="SnapsToDevicePixels" Value="True"/>
+    <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+    <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+  </Style>
+
+  <!-- ListBoxItem style -->
+  <Style TargetType="ListBoxItem" x:Key="ModernListBoxItem">
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="Foreground" Value="#FFFFFF"/>
+    <Setter Property="Padding" Value="6,2"/>
+    <Setter Property="Margin" Value="0,0,0,0"/>
+    <Setter Property="HorizontalContentAlignment" Value="Left"/>
+    <Setter Property="VerticalContentAlignment" Value="Center"/>
+    <Setter Property="SnapsToDevicePixels" Value="True"/>
+    <Setter Property="FontSize" Value="14"/>
+    <Setter Property="FontFamily" Value="Segoe UI"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="ListBoxItem">
+          <Border x:Name="Bd" Background="{TemplateBinding Background}" CornerRadius="4">
+            <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center"/>
+          </Border>
+          <ControlTemplate.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+              <Setter TargetName="Bd" Property="Background" Value="#0078D7"/>
+              <Setter Property="Foreground" Value="#FFFFFF"/>
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="True">
+              <Setter TargetName="Bd" Property="Background" Value="#3C3C43"/>
+              <Setter Property="Foreground" Value="#FFFFFF"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+              <Setter Property="Foreground" Value="#888"/>
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <!-- StackPanel default margin/padding -->
+  <Style TargetType="StackPanel" x:Key="ModernStackPanel">
+    <Setter Property="Margin" Value="16,8,16,8"/>
+  </Style>
+
+  <!-- TextBlock default margin/padding and color -->
+  <Style TargetType="TextBlock" x:Key="ModernTextBlock">
+    <Setter Property="Margin" Value="0,0,0,4"/>
+    <Setter Property="FontSize" Value="15"/>
+    <Setter Property="FontFamily" Value="Segoe UI"/>
+    <Setter Property="Foreground" Value="#FFFFFF"/>
+  </Style>
+
+  <!-- Default Foreground for all TextBlocks -->
+  <Style TargetType="TextBlock">
+    <Setter Property="Foreground" Value="#FFFFFF"/>
+  </Style>
+
+  <!-- Tray ContextMenu Style -->
+  <Style x:Key="TrayContextMenuStyle" TargetType="ContextMenu">
+    <Setter Property="Background" Value="#222"/>
+    <Setter Property="Foreground" Value="#FFF"/>
+    <Setter Property="FontSize" Value="16"/>
+    <Setter Property="BorderBrush" Value="#444444"/>
+    <Setter Property="BorderThickness" Value="1"/>
+  </Style>
+
+  <Style x:Key="TrayMenuItemStyle" TargetType="MenuItem">
+    <Setter Property="Foreground" Value="#FFF"/>
+    <Setter Property="Background" Value="#222"/>
+    <Setter Property="FontSize" Value="14"/>
+    <Setter Property="Padding" Value="12,4"/>
+    <Setter Property="MinHeight" Value="28"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="MenuItem">
+          <Border Background="{TemplateBinding Background}">
+            <ContentPresenter ContentSource="Header" HorizontalAlignment="Left" VerticalAlignment="Center" RecognizesAccessKey="True" Margin="4,0,4,0"/>
+          </Border>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+    <Style.Triggers>
+      <Trigger Property="IsHighlighted" Value="True">
+        <Setter Property="Background" Value="#444"/>
+      </Trigger>
+      <Trigger Property="IsEnabled" Value="False">
+        <Setter Property="Foreground" Value="#888"/>
+      </Trigger>
+    </Style.Triggers>
   </Style>
 </ResourceDictionary> 

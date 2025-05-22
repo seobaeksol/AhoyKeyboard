@@ -7,6 +7,16 @@
     xmlns:tb="clr-namespace:H.NotifyIcon;assembly=H.NotifyIcon.Wpf" mc:Ignorable="d" Title="MainWindow" Height="450" Width="800" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
     <Border Style="{StaticResource WindowBorderStyle}" SnapsToDevicePixels="True">
         <Grid>
+            <tb:TaskbarIcon x:Name="TaskbarIcon" IconSource="pack://application:,,,/assets/icon.ico" ToolTipText="Ahoy Keyboard" TrayLeftMouseDown="TaskbarIcon_TrayLeftMouseDown">
+                <tb:TaskbarIcon.ContextMenu>
+                    <ContextMenu Style="{StaticResource TrayContextMenuStyle}">
+                        <MenuItem x:Name="TaskbarStatusItem" Header="Status: Unknown" IsEnabled="False" Style="{StaticResource TrayMenuItemStyle}"/>
+                        <MenuItem Header="_Enable Keyboard" Click="TrayEnableKeyboard_Click" Style="{StaticResource TrayMenuItemStyle}"/>
+                        <MenuItem Header="Disable Keyboard" Click="TrayDisableKeyboard_Click" Style="{StaticResource TrayMenuItemStyle}"/>
+                        <MenuItem Header="Exit" Click="TrayExit_Click" Style="{StaticResource TrayMenuItemStyle}"/>
+                    </ContextMenu>
+                </tb:TaskbarIcon.ContextMenu>
+            </tb:TaskbarIcon>
             <!-- Custom Title Bar -->
             <Border Style="{StaticResource TitleBarStyle}">
                 <Grid>
@@ -18,13 +28,18 @@
                     <Button x:Name="BtnClose" Content="✕" Style="{StaticResource CloseButton}" Click="BtnClose_Click" Grid.Column="1"/>
                 </Grid>
             </Border>
-            <!-- Main Content (아래로 내림) -->
+            <!-- Main Content (downward) -->
             <Grid Margin="0,32,0,0">
-                <tb:TaskbarIcon ToolTipText="AhoyKeyboard" MenuActivation="LeftOrRightClick" TrayLeftMouseDown="TaskbarIcon_TrayLeftMouseDown">
-                    <tb:TaskbarIcon.IconSource>
-                        <tb:GeneratedIconSource Text="⌨" Foreground="Black" FontSize="32"/>
-                    </tb:TaskbarIcon.IconSource>
-                </tb:TaskbarIcon>
+                <StackPanel Style="{StaticResource ModernStackPanel}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Source="pack://application:,,,/assets/icon-192.png" Width="128" Height="128" Margin="0,0,0,32" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="KeyboardStatusText" Style="{StaticResource ModernTextBlock}" FontWeight="Bold" FontSize="18" TextAlignment="Center"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,16,0,0">
+                        <Button x:Name="BtnEnableKeyboard" Content="Enable Keyboard" Style="{StaticResource ModernButton}" Width="140" Margin="0,0,16,0" Click="BtnEnableKeyboard_Click"/>
+                        <Button x:Name="BtnDisableKeyboard" Content="Disable Keyboard" Style="{StaticResource ModernButton}" Width="140" Click="BtnDisableKeyboard_Click"/>
+                    </StackPanel>
+                    <TextBlock Text="* You must reboot for changes to take effect." Style="{StaticResource ModernTextBlock}" FontSize="12" Foreground="#AAAAAA" TextAlignment="Center" Margin="0,16,0,0"/>
+                    <Button x:Name="BtnReboot" Content="Reboot Now" Style="{StaticResource ModernButton}" Width="140" Margin="0,12,0,0" Click="BtnReboot_Click"/>
+                </StackPanel>
             </Grid>
         </Grid>
     </Border>

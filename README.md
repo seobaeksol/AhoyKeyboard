@@ -1,8 +1,8 @@
-# Keyboard Toggle (Built-in Keyboard Enable/Disable Tool)
+# AhoyKeyboard (Built-in Keyboard Enable/Disable Tool)
 
 ## 🛠️ Overview
 
-Keyboard Toggle is a lightweight WPF application that helps you easily enable or disable the built-in keyboard (especially on laptops) on Windows operating systems. It is useful when you want to prevent malfunction or unnecessary input from the built-in keyboard while using an external keyboard. This application is based on the .NET 9.0 framework and can be conveniently controlled from the system tray icon in the background.
+AhoyKeyboard is a lightweight WPF application that helps you easily enable or disable the built-in keyboard (especially on laptops) on Windows operating systems. It is useful when you want to prevent malfunction or unnecessary input from the built-in keyboard while using an external keyboard. This application is based on the .NET 9.0 framework and can be conveniently controlled from the system tray icon in the background.
 
 ## ✨ Main Features
 
