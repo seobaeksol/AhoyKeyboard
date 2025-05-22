@@ -1,0 +1,92 @@
+# Build results
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Mono Auto Generated Files
+test-results/
+
+# Windows image file caches
+Thumbs.db
+*.DS_Store
+
+# Visual Studio Code
+.vscode/
+
+# Rider
+.idea/
+*.sln.iml
+
+# NuGet
+*.nupkg
+# The packages folder can be ignored because of Package Restore
+**/packages/*
+!**/packages/build/
+!**/packages/repositories.config
+
+# DotCover
+*.dotCover
+
+# NCrunch
+*.ncrunch*
+.*crunch*.local.xml
+
+# Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
+*.sap
+
+# ReSharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# Local history for Visual Studio
+.localhistory/
+
+# TeamCity
+_TeamCity*
+
+# DotTrace
+*.dotTrace
+
+# Rider
+.idea/
+*.sln.iml
+
+# Backup & report files
+*.bak
+*.log
+*.vspscc
+*.vssscc
+*.tmp
+*.vs/
+
+# Publish Web Output
+*.Publish.xml
+
+# Others
+*.dbmdl
+*.dbmdl
+*.pdb
+*.cache
+*.config
+*.vsix
+*.docstates
+
+# WPF specific
+*.g.cs
+*.g.i.cs
+*.baml
+*.xaml.cs
+*.xaml.g.cs
+*.xaml.g.i.cs
+
+# Others
+*.orig
+*.rej 
