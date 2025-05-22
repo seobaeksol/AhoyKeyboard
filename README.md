@@ -1,8 +1,18 @@
+<p align="center">
+  <img src="assets/icon-512-maskable.png" alt="AhoyKeyboard Logo" width="128" height="128"/>
+</p>
+
 # AhoyKeyboard (Built-in Keyboard Enable/Disable Tool)
 
 ## 🛠️ Overview
 
 AhoyKeyboard is a lightweight WPF application that helps you easily enable or disable the built-in keyboard (especially on laptops) on Windows operating systems. It is useful when you want to prevent malfunction or unnecessary input from the built-in keyboard while using an external keyboard. This application is based on the .NET 9.0 framework and can be conveniently controlled from the system tray icon in the background.
+
+## 🖼️ Screenshot
+
+<p align="center">
+  <img src="assets/screenshot.png" alt="AhoyKeyboard Screenshot" width="600"/>
+</p>
 
 ## ✨ Main Features
 
