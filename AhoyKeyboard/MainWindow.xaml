@@ -1,12 +1,31 @@
 ﻿<Window x:Class="AhoyKeyboard.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:AhoyKeyboard"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:AhoyKeyboard"
+    xmlns:tb="clr-namespace:H.NotifyIcon;assembly=H.NotifyIcon.Wpf" mc:Ignorable="d" Title="MainWindow" Height="450" Width="800" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
+    <Border Style="{StaticResource WindowBorderStyle}" SnapsToDevicePixels="True">
+        <Grid>
+            <!-- Custom Title Bar -->
+            <Border Style="{StaticResource TitleBarStyle}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="40"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="AhoyKeyboard" Style="{StaticResource ModernText}" VerticalAlignment="Center" Margin="10,0,0,0" FontWeight="Bold" Grid.Column="0"/>
+                    <Button x:Name="BtnClose" Content="✕" Style="{StaticResource CloseButton}" Click="BtnClose_Click" Grid.Column="1"/>
+                </Grid>
+            </Border>
+            <!-- Main Content (아래로 내림) -->
+            <Grid Margin="0,32,0,0">
+                <tb:TaskbarIcon ToolTipText="AhoyKeyboard" MenuActivation="LeftOrRightClick" TrayLeftMouseDown="TaskbarIcon_TrayLeftMouseDown">
+                    <tb:TaskbarIcon.IconSource>
+                        <tb:GeneratedIconSource Text="⌨" Foreground="Black" FontSize="32"/>
+                    </tb:TaskbarIcon.IconSource>
+                </tb:TaskbarIcon>
+            </Grid>
+        </Grid>
+    </Border>
 </Window>
